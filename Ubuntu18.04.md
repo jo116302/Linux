@@ -1,5 +1,16 @@
 > useradd & adduser
 
+> 시간 동기화
+  - 현재 Date 확인
+  ```
+  # date
+  ```
+  - 시간 동기화
+    ```
+    # ls /usr/share/zoneinfo/
+    # sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+    ```
+
 > firewall
   - 방화벽 상태 확인
     ```

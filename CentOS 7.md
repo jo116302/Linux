@@ -1,4 +1,5 @@
 > Linux Version 확인
+
     ```
     # cat /etc/*release*
     # uname -a

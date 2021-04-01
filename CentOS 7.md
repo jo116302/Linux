@@ -1,3 +1,9 @@
+> Linux Version 확인
+  ```
+  # cat /etc/*release*
+  # uname -a
+  ```
+
 > Java
 - 기본적으로 Open JDK 1.8 설치가 되어있음
   ```

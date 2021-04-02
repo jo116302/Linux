@@ -39,6 +39,8 @@
     # sudo apt-get install ubuntu-desktop
     // X Window 요소 최소한의 설치
     # sudo apt-get install --no-install-recommends ubuntu-desktop
+    // X Window 
+    # startx
     ```
 
 > firewall

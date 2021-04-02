@@ -27,6 +27,20 @@
     # sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
     ```
 
+> X Window 설치
+  - 업데이트 필요
+    ```
+    # sudo apt-get upgrade
+    # sudo apt-get update
+    ```
+  - X Window 설치
+    ```
+    // X Window 요소 모두 설치
+    # sudo apt-get install ubuntu-desktop
+    // X Window 요소 최소한의 설치
+    # sudo apt-get install --no-install-recommends ubuntu-desktop
+    ```
+
 > firewall
   - 방화벽 상태 확인
     ```

@@ -1,10 +1,26 @@
-> useradd & adduser
+> Linux Version 확인
+  ```
+  # lsb_release -a
+  ```
+
+> useradd & adduser & groupadd
+  - user 생성
+    ```
+    // adduser : 실행시 기본 계정 정보를 자동으로 생성
+    # adduser [username]
+    // useradd : 계정만 생성, 기타 계정 정보를 수동으로 생성 및 설정
+    # useradd [username]
+    ```
+  - group 생성
+    ```
+    # groupadd [groupname]
+    ```
 
 > 시간 동기화
   - 현재 Date 확인
-  ```
-  # date
-  ```
+    ```
+    # date
+    ```
   - 시간 동기화
     ```
     # ls /usr/share/zoneinfo/

@@ -33,7 +33,7 @@
     # sudo apt-get upgrade
     # sudo apt-get update
     ```
-  - X Window 설치
+  - X Window 설치([참고 링크](https://s-engineer.tistory.com/224))
     ```
     // X Window 요소 모두 설치
     # sudo apt-get install ubuntu-desktop
@@ -42,7 +42,7 @@
     // X Window 
     # startx
     ```
-  - XRDP 설치[참고 링크](https://marcokhan.tistory.com/248)
+  - XRDP 설치([참고 링크](https://marcokhan.tistory.com/248))
     ```
     # sudo apt-get install xrdp
     # sudo apt-get install xorgxrdp

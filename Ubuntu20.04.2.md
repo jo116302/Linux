@@ -3,7 +3,7 @@
   # lsb_release -a
   ```
 
-> useradd & adduser & groupadd
+> # useradd & adduser & groupadd
   - user 생성
     ```
     // adduser : 실행시 기본 계정 정보를 자동으로 생성
@@ -16,7 +16,7 @@
     # groupadd [groupname]
     ```
 
-> 시간 동기화
+> # 시간 동기화
   - 현재 Date 확인
     ```
     # date
@@ -27,7 +27,7 @@
     # sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
     ```
 
-> X Window 설치
+> # X Window 설치
   - 업데이트 필요
     ```
     # sudo apt-get upgrade
@@ -49,7 +49,7 @@
     # sudo apt-get install xorg-video-abi-23
     ```
 
-> firewall
+> # firewall
   - 방화벽 상태 확인
     ```
     # sudo ufw status verbose
@@ -73,7 +73,7 @@
     # sudo ufw deny [PORT]
     ```
 
-> Java 1.6 설치
+> # Java 1.6 설치
   - [Java 1.6 다운로드 받기](https://www.oracle.com/java/technologies/javase-java-archive-javase6-downloads.html)
   - Java 설치
     ```

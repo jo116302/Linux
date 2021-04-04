@@ -1,4 +1,4 @@
-> Linux Version 확인
+> #Linux Version 확인
   ```
   # lsb_release -a
   ```

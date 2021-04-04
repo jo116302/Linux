@@ -72,3 +72,25 @@
     // 특정 PORT 통신 거부
     # sudo ufw deny [PORT]
     ```
+
+> Java 1.6 설치
+  - [Java 1.6 다운로드 받기](https://www.oracle.com/java/technologies/javase-java-archive-javase6-downloads.html)
+  - Java 설치
+    ```
+    # sudo chmod +x jdk-6u45-linux-x64.bin
+    # ./jdk-6u45-linux-x64.bin
+    # sudo mv jdk1.6.0_45/ /usr/lib/jvm/
+    # sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.6.0_45/bin/java 1
+    # sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.6.0_45/bin/javac 1
+    # sudo update-alternatives --install /usr/bin/javaws javaws /usr/lib/jvm/jdk1.6.0_45/bin/javaws 1
+    # sudo update-alternatives --config java
+    # sudo update-alternatives --config javac
+    # sudo update-alternatives --config javaws
+    # java -version
+    ```
+    - [alternatives란?](https://skyoo2003.github.io/post/2017/03/17/what-is-alternatives-command)
+      - 심볼릭 링크를 생성/제거/관리/조회 기능을 제공
+      - 옵션
+        - '--install' : 심볼릭 링크 생성
+        - '--remove' : 심볼릭 링크 제거
+        - '--auto' : 심볼릭 링크 자동화

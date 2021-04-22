@@ -49,6 +49,23 @@
     # sudo apt-get install xorg-video-abi-23
     ```
 
+> # vsftp install
+
+  - vsftp 설치
+    ```terminal
+    # sudo apt-get install vsftpd
+    ```
+  - root 사용자 로그인 가능하게 설정
+    - 아래 파일에서 root 주석 처리
+    ```terminal
+    # vi /etc/ftpusers
+    ```
+  - 쓰기 권한 부여
+    - `write_enable=YES`로 
+    ```
+    # vi /etc/vsftpd.conf
+    ```
+
 > # firewall
   - 방화벽 상태 확인
     ```

@@ -61,7 +61,7 @@
     # vi /etc/ftpusers
     ```
   - 쓰기 권한 부여
-    - `write_enable=YES`로 
+    - `write_enable=YES`로 수정
     ```
     # vi /etc/vsftpd.conf
     ```

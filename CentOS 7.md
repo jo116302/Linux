@@ -1,10 +1,10 @@
-> Linux Version 확인<br>
+> # Linux Version 확인<br>
   ```
   # cat /etc/*release*
   # uname -a
   ```
 
-> Java
+> # Java
 - 기본적으로 Open JDK 1.8 설치가 되어있음
   ```
   java -version
@@ -44,3 +44,5 @@
         # ldconfig
         ```
   [설치 링크](https://copycoding.tistory.com/290#google_vignette)
+
+> # NFS 

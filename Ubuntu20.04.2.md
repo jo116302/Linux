@@ -96,7 +96,7 @@
     ```
     # sudo chmod +x jdk-6u45-linux-x64.bin
     # ./jdk-6u45-linux-x64.bin
-    # sudo mv jdk1.6.0_45/ /usr/lib/jvm/
+    # sudo mv ./jdk1.6.0_45 /usr/lib/jvm/
     # sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.6.0_45/bin/java 1
     # sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.6.0_45/bin/javac 1
     # sudo update-alternatives --install /usr/bin/javaws javaws /usr/lib/jvm/jdk1.6.0_45/bin/javaws 1

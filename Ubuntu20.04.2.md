@@ -15,6 +15,12 @@
     ```
     # groupadd [groupname]
     ```
+    
+> # 설치된 서비스 확인
+
+  ```terminal
+  dpkg -l | grep [Search]
+  ```
 
 > # 시간 동기화
   - 현재 Date 확인

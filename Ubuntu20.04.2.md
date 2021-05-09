@@ -68,32 +68,36 @@
     ```
   - 쓰기 권한 부여
     - `write_enable=YES`로 수정
-    ```
+    ```terminal
     # vi /etc/vsftpd.conf
     ```
 
 > # firewall
   - 방화벽 상태 확인
-    ```
+    ```terminal
     # sudo ufw status verbose
     ```
   - 방화벽 활성화 및 비활성화
-    ```
+    ```terminal
     // 방화벽 활성화
     # sudo ufw enable 
     // 방화벽 비활성화
     # sudo ufw disable
     ```
   - 방화벽 규칙 확인
-    ```
+    ```terminal
     # sudo ufw show raw 
     ```
   - 방화벽 규칙 변경
-    ```
+    ```terminal
     // 특정 PORT 통신 허용
     # sudo ufw allow [PORT]/[TCP/UDP]
     // 특정 PORT 통신 거부
     # sudo ufw deny [PORT]
+    ```
+  - 현재 사용하고 있는 포트
+    ```terminal
+    # netstat -tulpn
     ```
 
 > # Java 1.6 설치

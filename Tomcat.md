@@ -7,7 +7,14 @@
   ```terminal
   # wget https://mirror.navercorp.com/apache/tomcat/tomcat-7/v7.0.109/bin/apache-tomcat-7.0.109.tar.gz
   ```
-- Tomcat 기본 경로
+- [Tomcat 디렉토리 구조](https://jokerkwu.tistory.com/117)<br />
+  - bin : tomcat을 실행 및 종료하는 `*.sh` 파일 존재
+  - conf : 서버 전체 설정 파일 폴더
+  - lib : Library가 저장되는 경로
+  - logs : 로그 저장
+  - temp : 임시 저장용 폴더
+  - webapp : 웹 어플리케이션 폴더
+  - work : jsp파일을 Servlet파일로 변환한 `*.java`, `*.class`파일이 저장
   ![image](https://user-images.githubusercontent.com/81629923/117994325-6b734d80-b37b-11eb-92f4-53be1e14f579.png)
 - 실행
   - 아래 명령어 후 `http://[IP]:8080/`로 접속 가능

@@ -13,3 +13,31 @@
   # cd apache-tomcat-7.0.109/bin
   # ./startup.sh
   ```
+- 자동 실행
+  - service에 등록해주기
+    ```terminal
+    # vi /etc/init.d/tomcat
+    # sudo chmod 755 /etc/init.d/tomcat
+    # sudo update-rc.d tomcat defaults
+    # systemctl start tomcat
+    # systemctl enable tomcat
+    ```
+  - `/etc/init.d/tomcat` 입력
+    ```sh
+    #!/bin/bash
+    
+    case $1 in
+    start)
+    sh /root/Downloads/apache-tomcat-7.0.109/bin/startup.sh
+    ;;
+    stop)
+    sh /root/Downloads/apache-tomcat-7.0.109/bin/shutdown.sh
+    ;;
+    restart)
+    sh /root/Downloads/apache-tomcat-7.0.109/bin/shutdown.sh
+    sleep 2
+    sh /root/Downloads/apache-tomcat-7.0.109/bin/startup.sh
+    ;;
+    esac
+    exit 0
+    ```

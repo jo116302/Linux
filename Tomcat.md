@@ -7,6 +7,8 @@
   ```terminal
   # wget https://mirror.navercorp.com/apache/tomcat/tomcat-7/v7.0.109/bin/apache-tomcat-7.0.109.tar.gz
   ```
+- Tomcat 기본 경로
+  ![image](https://user-images.githubusercontent.com/81629923/117994325-6b734d80-b37b-11eb-92f4-53be1e14f579.png)
 - 실행
   - 아래 명령어 후 `http://[IP]:8080/`로 접속 가능
   ```terminal

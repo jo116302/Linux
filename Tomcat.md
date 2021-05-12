@@ -16,6 +16,7 @@
   - webapp : 웹 어플리케이션 폴더
   - work : jsp파일을 Servlet파일로 변환한 `*.java`, `*.class`파일이 저장
   ![image](https://user-images.githubusercontent.com/81629923/117994325-6b734d80-b37b-11eb-92f4-53be1e14f579.png)
+  - [참고 링크1](https://itwarehouses.tistory.com/8)
 - 실행
   - 아래 명령어 후 `http://[IP]:8080/`로 접속 가능
   ```terminal

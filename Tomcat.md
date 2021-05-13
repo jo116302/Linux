@@ -56,7 +56,8 @@
 
 >> ## 설정 파일
 
-- 
+- `~/apache-tomcat-7.0.109/conf/server.xml`
+- `~/apache-tomcat-7.0.109/conf/context.xml`
 
 >> ## Tomcat 경로 확인
 

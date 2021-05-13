@@ -13,7 +13,7 @@
   - lib : Library가 저장되는 경로
   - logs : 로그 저장
   - temp : 임시 저장용 폴더
-  - webapp : 웹 어플리케이션 폴더
+  - webapps : 웹 어플리케이션 폴더
   - work : jsp파일을 Servlet파일로 변환한 `*.java`, `*.class`파일이 저장
   ![image](https://user-images.githubusercontent.com/81629923/117994325-6b734d80-b37b-11eb-92f4-53be1e14f579.png)
   - [참고 링크1](https://itwarehouses.tistory.com/8)
@@ -53,3 +53,50 @@
     ```
 
 > # Tomcat 설정
+
+>> ## 설정 파일
+
+- 
+
+>> ## Tomcat 경로 확인
+
+- 기본 `webapp` 폴더로 경로가 잡혀있음
+  - [`~/apache-tomcat-7.0.109/conf/server.xml`](https://indienote.tistory.com/496)
+  ```xml
+  ...
+  <!-- 
+    shutdown 요청을 받기 위한 listen Port 설정, admin port 이다.
+      - port 값이 -1인 경우 shutdown 포트 기능을 사용하지 않음
+      - server는 하나 이상의 service 객체를 가지고 있음
+   -->
+  <Server port="8005" shutdown="SHUTDOWN">
+  ...
+  <!-- 
+    shutdown 요청을 받기 위한 listen Port 설정
+      - port 값이 -1인 경우 shutdown 포트 기능을 사용하지 않음
+      - service는 하나 이상의 container를 공유하는 connectors의 집합
+   -->
+  <Service name="Catalina">
+  ...
+  <!--
+    url을 입력했을 때 url의 통신하는 정보를 나타냄
+      - connector는 요청을 받고, 응답을 리턴하는 endpoint
+      - connector는 수신된 요청을 container에게 요청을 전달
+   -->
+  <Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
+  ...
+  <!--
+    Engine은 적절한 Host(virtual host)로 처리를 넘기는 entry point
+   -->
+  <Engine defaultHost="localhost" name="Catalina">
+  ...
+  <!--
+    default virtual host 정의
+   -->
+  <Host appBase="webapps" autoDeploy="true" name="localhost" unpackWARs="true">
+  ...
+  ```
+- 기본으로 잡혀있는 경로
+  - `~/apache-tomcat-7.0.109/webapps/ROOT` : 최상위 Root url 경로
+  - `~/apache-tomcat-7.0.109/webapps/[폴더 A]` : `http://[IP]:[PORT]/[폴더 A]`
+  - Root 경로 내에 있는 tomcat 관련 페이지 삭제 후 프로젝트 삽입

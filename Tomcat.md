@@ -108,7 +108,7 @@
 
 - AJP는 웹 서버로 유입되는 트레픽을 위임하기 위한 프로토콜
 - tomcat으로 요청 트래픽을 위임하지만, tomcat이 살아있는지 확인할 수 있는 모니터링 기능 지원
-- 즉, apache를 통하여 L7 Loadbalance 기능을 구현인듯 싶음
+- 즉, apache를 통하여 L7 Loadbalance 기능을 구현인듯 싶음 ([참고 링크](https://velog.io/@makeitcloud/%EB%9E%80-L4-load-balancer-vs-L7-load-balancer-%EB%9E%80))
   - L4
     - 주로 Lound Robin 방식의 로드밸런싱 수행
     - TCP/UDP 정보로 로드밸런싱 수행
@@ -119,6 +119,12 @@
     - HTTP, FTP, SMTP 등의 정보를 열람하여 섬세한 전송 가능
     - DDOS 등 비정상적인 트래픽을 걸러낼 수 있음
     - 상대적으로 L4보다 저렴
+- 성능적 차이
+  - Tomcat는 Web 서버와 WAS 서버로 모두 이용 가능
+  - Tomcat은 Apache보다 상대적으로 느림
+  - 초기는 이러한 문제를 해결하기 위하여 Apache 서버가 정적 페이지를 처리, Tomcat이 동적 페이지를 처리하기 위해 사용
+  - 현재는 초기와 달리 Tomcat만으로도 커버가 가능하지만 Apache에서만 사용 가능한 유용한 기능을 사용하기 위함
+  - [참고 링크](https://noobnim.tistory.com/26)
 - [참고 링크1](https://sydesjokes.com/page-215/apache-tomcat-2/)
 
 >> ## AJP를 사용하기 위한 설치
@@ -161,6 +167,8 @@
   14         JkMount /* testAJP
   ```
 - mod-js 설정 : `/etc/apache2/mods-available/jk.conf` 수정
+  - mod-js란?
+    - Apache와 Tomcat 사이를 중계
   - 23번 라인 주석처리, 24번라인 작성
   ```conf
   23     # JkWorkersFile /etc/libapache2-mod-jk/workers.properties

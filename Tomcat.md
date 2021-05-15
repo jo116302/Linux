@@ -104,6 +104,13 @@
 
 > # AJP
 
+>> ## AJP 사용 이유
+
+- AJP는 웹 서버로 유입되는 트레픽을 위임하기 위한 프로토콜
+- tomcat으로 요청 트래픽을 위임하지만, tomcat이 살아있는지 확인할 수 있는 모니터링 기능 지원
+- 즉, apache를 통하여 L7 Loadbalance 기능을 구현인듯 싶음
+- [참고 링크1](https://sydesjokes.com/page-215/apache-tomcat-2/)
+
 >> ## AJP를 사용하기 위한 설치
 - Apache2 설치
   ```terminal
@@ -118,8 +125,8 @@
 
 - Apache 설정 : `/etc/apache2/workers.properties` 작성
   ```properties
-  workers.tomcat_home=/root/wisenut/sf-1v5.3/apache-tomcat-7.0.109
-  workers.java_home=/usr/lib/jvm/jdk1.6.0_45
+  workers.tomcat_home=[~/apache-tomcat-7.0.109 - apache path]
+  workers.java_home=[/usr/lib/jvm/jdk1.6.0_45 - java path]
   
   # Define 1 real worker ajp13
   worker.list=testAJP
@@ -149,7 +156,9 @@
   23     # JkWorkersFile /etc/libapache2-mod-jk/workers.properties
   24     JkWorkersFile /etc/apache2/workers.properties
   ```
-- tomcat 설정 : 
+- tomcat 설정 : `~/apache-tomcat-7.0.109/conf/server.xml` 수정
+  - [참고 링크1](https://nirsa.tistory.com/131)
+  - [참고 링크2](https://secunmblog.prtg.kr/entry/PRTG-PORT-Monitoring-Apache-Tomcat-CVE-2020-1938)
   - 65번 라인을 주석처리, 또는 HTTP Protocol로 수신도 하고 싶다면 그냥 두자
   - 85 ~ 88번라인 주석 해제 후 86라인 수정 및 89번라인 추가
     - 86번라인에 기입되어 있던 것의 의미

@@ -148,6 +148,8 @@
   worker.list=testAJP
   
   # Set properties for tomcat1 (ajp13)
+  ## worker.[worker.list에 적은 worker 명을 기입]
+  ## worker.testAJP.type : Protocol
   ## worker.testAJP.lbfactor : 해당 worker로 부하분산을 비율을 정의
   worker.testAJP.port = 8009
   worker.testAJP.host = 34.64.140.160

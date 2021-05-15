@@ -149,11 +149,11 @@
   24     JkWorkersFile /etc/apache2/workers.properties
   ```
 - tomcat 설정 : 
-  - 65번 라인 `protocol="AJP/1.1"`을 수정
+  - 65번 라인을 주석처리, 또는 HTTP Protocol로 수신도 하고 싶다면 그냥 두자
   - 85 ~ 88번라인 주석 해제
   ```xml
   ...
-  65     <Connector connectionTimeout="20000" port="8080" protocol="AJP/1.1" redirectPort="8443"/>
+  65     <Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
   ...
   85     <Connector protocol="AJP/1.3"
   86                address="::1"

@@ -101,3 +101,67 @@
   - `~/apache-tomcat-7.0.109/webapps/ROOT` : 최상위 Root url 경로
   - `~/apache-tomcat-7.0.109/webapps/[폴더 A]` : `http://[IP]:[PORT]/[폴더 A]`
   - Root 경로 내에 있는 tomcat 관련 페이지 삭제 후 프로젝트 삽입
+
+> # AJP
+
+- Apache2 설치
+  ```terminal
+   # sudo apt-get install apache2
+  ```
+- Tomcat과 연동을 위한 `mod-jk` 설치
+  ```terminal
+  # apt-get install libapache2-mod-jk
+  ```
+
+>> ## Apache2와 Tomcat과 연결 설정
+
+- Apache 설정 : `/etc/apache2/workers.properties` 작성
+  ```properties
+  workers.tomcat_home=/root/wisenut/sf-1v5.3/apache-tomcat-7.0.109
+  workers.java_home=/usr/lib/jvm/jdk1.6.0_45
+  
+  # Define 1 real worker ajp13
+  worker.list=testAJP
+  
+  # Set properties for tomcat1 (ajp13)
+  ## worker.testAJP.lbfactor : 해당 worker로 부하분산을 비율을 정의
+  worker.testAJP.port = 8009
+  worker.testAJP.host = 34.64.140.160
+  worker.testAJP.type = ajp13
+  worker.testAJP.lbfactor = 1
+  ```
+- Apache 설정 : `/etc/apache2/sites-available/000-default.conf` 수정
+  - 12번줄 주석처리
+  - 13 ~ 14번줄 작성 
+  ```conf
+             # DocumentRoot는 tomcat에서 호스팅되는 경로, 보통은 ROOT에 놓지만 webapps의 다른 프로젝트가 있다면 해당 경로로 기입
+  12         # DocumentRoot /var/www/html
+  13         DocumentRoot /root/wisenut/sf-1v5.3/apache-tomcat-7.0.109/webapps/ROOT/
+             # JkMount와 연동 설정
+             #  - /* : 접근할 수 있는 경로를 의미하며, 모든 접근은 /*를 놓고, 특정 경로 하위만 허용하고 싶으면 /[path...]/.../[*]로 기입
+             #  - testAJP는 /etc/apache2/workers.properties 에서 정의된 workder명을 기입, worker를 여러개 두고 있다면 worker의 개수만큼 정의
+  14         JkMount /* testAJP
+  ```
+- mod-js 설정 : `/etc/apache2/mods-available/jk.conf` 수정
+  - 23번 라인 주석처리, 24번라인 작성
+  ```conf
+  23     # JkWorkersFile /etc/libapache2-mod-jk/workers.properties
+  24     JkWorkersFile /etc/apache2/workers.properties
+  ```
+- tomcat 설정 : 
+  - 65번 라인 `protocol="AJP/1.1"`을 수정
+  - 85 ~ 88번라인 주석 해제
+  ```xml
+  ...
+  65     <Connector connectionTimeout="20000" port="8080" protocol="AJP/1.1" redirectPort="8443"/>
+  ...
+  85     <Connector protocol="AJP/1.3"
+  86                address="::1"
+  87                port="8009"
+  88                redirectPort="8443" />
+  ```
+- 모든 설정이 끝났다면 tomcat과 apache 재시작
+  ```terminal
+  # systemctl restart tomcat
+  # systemctl restart apache2
+  ```

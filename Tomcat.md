@@ -104,6 +104,7 @@
 
 > # AJP
 
+>> ## AJP를 사용하기 위한 설치
 - Apache2 설치
   ```terminal
    # sudo apt-get install apache2
@@ -150,15 +151,21 @@
   ```
 - tomcat 설정 : 
   - 65번 라인을 주석처리, 또는 HTTP Protocol로 수신도 하고 싶다면 그냥 두자
-  - 85 ~ 88번라인 주석 해제
+  - 85 ~ 88번라인 주석 해제 후 86라인 수정 및 89번라인 추가
+    - 86번라인에 기입되어 있던 것의 의미
+      - `::1` : 루프백 IP
+        - 루프백IP란 자기 자신을 의미하는 IP를 의미, 연결 설정은 `hosts`파일에서 되어있음
+          - IPv4 사용 가능 범위의 아이피 : `127.0.0.0/8`, 일반적으로 `127.0.0.1`을 사용
+          - IPv6 사용 가능 범위의 아이피 : `0:0:0:0:0:0:0:1` 하나만 사용 <br />(왜그럴까? 찾아봤지만 알수 없었지만 유추하자면, IPv6의 탄생 배경에 있지 않을까한다. IPv6는 IPv4의 IP 대역의 고갈을 염두하여 만들어졌기 때문에 사용가능한 IP의 범위를 크게하기 위해서 하나만 있어도 될 루프백에 많은 아이피를 할당 범위로 놓지 않은 것같다.<br />물론 우려와 다르게 Private IP의 활용으로 기존 우려처럼 IPv4의 범위 초과의 문제에 직면하지 않았고, 현재 IPv6는 크게 사용되지 않는걸로 알고 있다.)
   ```xml
   ...
   65     <Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
   ...
   85     <Connector protocol="AJP/1.3"
-  86                address="::1"
+  86                address="0.0.0.0/0"
   87                port="8009"
-  88                redirectPort="8443" />
+  88                redirectPort="8443"
+  89                secretRequired="false" />
   ```
 - 모든 설정이 끝났다면 tomcat과 apache 재시작
   ```terminal

@@ -109,6 +109,16 @@
 - AJP는 웹 서버로 유입되는 트레픽을 위임하기 위한 프로토콜
 - tomcat으로 요청 트래픽을 위임하지만, tomcat이 살아있는지 확인할 수 있는 모니터링 기능 지원
 - 즉, apache를 통하여 L7 Loadbalance 기능을 구현인듯 싶음
+  - L4
+    - 주로 Lound Robin 방식의 로드밸런싱 수행
+    - TCP/UDP 정보로 로드밸런싱 수행
+    - 속도가 빠르며, 효율이 높음
+  - L7
+    - L1 ~ L6 까지의 기능을 전부 가지고 있음
+    - TCP/UDP 정보로 로드밸런싱 가능
+    - HTTP, FTP, SMTP 등의 정보를 열람하여 섬세한 전송 가능
+    - DDOS 등 비정상적인 트래픽을 걸러낼 수 있음
+    - 상대적으로 L4보다 저렴
 - [참고 링크1](https://sydesjokes.com/page-215/apache-tomcat-2/)
 
 >> ## AJP를 사용하기 위한 설치

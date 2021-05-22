@@ -168,8 +168,8 @@
              #  - testAJP는 /etc/apache2/workers.properties 에서 정의된 workder명을 기입, worker를 여러개 두고 있다면 worker의 개수만큼 정의
   14         JkMount /* testAJP
   ```
-- mod-js 설정 : `/etc/apache2/mods-available/jk.conf` 수정
-  - mod-js란?
+- mod-jk 설정 : `/etc/apache2/mods-available/jk.conf` 수정
+  - mod-jk란?
     - Apache와 Tomcat 사이를 중계
   - 23번 라인 주석처리, 24번라인 작성
   ```conf

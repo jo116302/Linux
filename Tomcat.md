@@ -162,7 +162,7 @@
   ```conf
              # DocumentRoot는 tomcat에서 호스팅되는 경로, 보통은 ROOT에 놓지만 webapps의 다른 프로젝트가 있다면 해당 경로로 기입
   12         # DocumentRoot /var/www/html
-  13         DocumentRoot /root/wisenut/sf-1v5.3/apache-tomcat-7.0.109/webapps/ROOT/
+  13         DocumentRoot /root/wisenut/sf-1v5.3/apache-tomcat-7.0.109/webapps/
              # JkMount와 연동 설정
              #  - /* : 접근할 수 있는 경로를 의미하며, 모든 접근은 /*를 놓고, 특정 경로 하위만 허용하고 싶으면 /[path...]/.../[*]로 기입
              #  - testAJP는 /etc/apache2/workers.properties 에서 정의된 workder명을 기입, worker를 여러개 두고 있다면 worker의 개수만큼 정의

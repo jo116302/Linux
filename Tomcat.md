@@ -156,7 +156,7 @@
   worker.testAJP.type = ajp13
   worker.testAJP.lbfactor = 1
   ```
-- Apache 설정 : `/etc/apache2/sites-available/000-default.conf` 수정
+- [Apache 설정 : `/etc/apache2/sites-available/000-default.conf` 수정](https://httpd.apache.org/docs/2.4/ko/vhosts/examples.html)
   - 12번줄 주석처리
   - 13 ~ 14번줄 작성 
   ```conf

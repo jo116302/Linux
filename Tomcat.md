@@ -283,4 +283,8 @@
 
 - [참고 링크1](https://xinet.kr/?p=1655)
 - [참고 링크2](https://geekflare.com/tomcat-ssl-guide/)
+- [참고 링크3](https://tomcat.apache.org/tomcat-8.5-doc/ssl-howto.html)
+- [참고 링크4](http://blog.naver.com/PostView.nhn?blogId=siva6&logNo=221600284617)
+- [참고 링크5](https://www.ibm.com/docs/ko/mpf/7.1.0?topic=ssl-configuring-apache-tomcat)
+- [참고 링크6](https://www.ucert.co.kr/wiki/w/Tomcat_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C_%EC%84%A4%EC%A0%95)
 - java1.6 버전은 TLSv 1.1만 지원하고, TLSv1.2는 지원하지 않기 때문에 경고 문구가 

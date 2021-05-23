@@ -228,7 +228,9 @@
     - 유의사항
       - 인증서(암호화) 파일이 생성된 경로 확인 `/etc/letsencrypt/live/[DNS]/...`<br /><img src="https://user-images.githubusercontent.com/81629923/119250016-197ec300-bbd8-11eb-98b2-cf440644b2ff.png" width="500px" />
       - letsencrypt or certbot은 유효기간이 3개월이며, 이를 알려고이 있음
-    
+
+>> ## Apache2에 SSL/TLS 적용
+
 - 설정 파일 수정
   - apache2 SSL/TLS 적용 : `/etc/apache2/sites-available/default-ssl.conf`
     ```conf
@@ -275,3 +277,7 @@
     ...
     ```
     
+>> ## Tomcat에 SSL/TLS 적용
+
+- [참고 링크1](https://xinet.kr/?p=1655)
+- [참고 링크2](https://geekflare.com/tomcat-ssl-guide/)

@@ -162,7 +162,7 @@
   ```conf
              # DocumentRoot는 tomcat에서 호스팅되는 경로, 보통은 ROOT에 놓지만 webapps의 다른 프로젝트가 있다면 해당 경로로 기입
   12         # DocumentRoot /var/www/html
-  13         DocumentRoot /root/wisenut/sf-1v5.3/apache-tomcat-7.0.109/webapps/
+  13         DocumentRoot /root/wisenut/sf-1v5.3/apache-tomcat-7.0.109/webapps/ROOT/
              # JkMount와 연동 설정
              #  - /* : 접근할 수 있는 경로를 의미하며, 모든 접근은 /*를 놓고, 특정 경로 하위만 허용하고 싶으면 /[path...]/.../[*]로 기입
              #  - testAJP는 /etc/apache2/workers.properties 에서 정의된 workder명을 기입, worker를 여러개 두고 있다면 worker의 개수만큼 정의
@@ -202,3 +202,23 @@
   # systemctl restart tomcat
   # systemctl restart apache2
   ```
+
+> # SSL/TLS
+
+- 설치
+  - certbot
+    ```terminal
+    # add-apt-repository ppa:certbot/certbot
+    # apt install certbot python3-certbot-apache
+    ```
+  - letsencrypt
+    ```terminal
+    # apt-get install -y letsencript
+    ```
+
+- cerbot을 사용하여 SSL/TLS 인증서 발급
+  - 명령어 : `certbot certonly --webroot -w [DocumentRoot] -d [DNS]`
+    ```terminal
+    # certbot certonly --webroot -w /root/wisenut/sf-1v5.3/apache-tomcat-7.0.109/webapps/ROOT/ -d orgtest.duckdns.org
+    ```
+  - 결과 출력 화면<br /><img src="https://user-images.githubusercontent.com/81629923/119249794-82653b80-bbd6-11eb-8a11-e80986f27568.png" width="500px" />

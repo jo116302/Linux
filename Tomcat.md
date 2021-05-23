@@ -224,8 +224,52 @@
     ```terminal
     # certbot certonly --webroot -w /root/wisenut/sf-1v5.3/apache-tomcat-7.0.109/webapps/ROOT/ -d orgtest.duckdns.org
     ```
-  - 결과 출력 화면
+  - 결과 출력 화면<br /><img src="https://user-images.githubusercontent.com/81629923/119249794-82653b80-bbd6-11eb-8a11-e80986f27568.png" width="500px" />
     - 유의사항
-      - 인증서(암호화) 파일이 생성된 경로 확인
+      - 인증서(암호화) 파일이 생성된 경로 확인 `/etc/letsencrypt/live/[DNS]/...`<br /><img src="https://user-images.githubusercontent.com/81629923/119250016-197ec300-bbd8-11eb-98b2-cf440644b2ff.png" width="500px" />
       - letsencrypt or certbot은 유효기간이 3개월이며, 이를 알려고이 있음
-    <img src="https://user-images.githubusercontent.com/81629923/119249794-82653b80-bbd6-11eb-8a11-e80986f27568.png" width="500px" />
+    
+- 설정 파일 수정
+  - apache2 SSL/TLS 적용 : `/etc/apache2/sites-available/default-ssl.conf`
+    ```conf
+    ...
+    DocumentRoot /root/wisenut/sf-1v5.3/apache-tomcat-7.0.109/webapps/ROOT/
+    JkMount /* testAJP
+    ...
+    #   SSL Engine Switch:
+    #   Enable/Disable SSL for this virtual host.
+    SSLEngine on
+    
+    #   A self-signed (snakeoil) certificate can be created by installing
+    #   the ssl-cert package. See
+    #   /usr/share/doc/apache2/README.Debian.gz for more info.
+    #   If both key and certificate are stored in the same file, only the
+    #   SSLCertificateFile directive is needed.
+    SSLCertificateFile      /etc/letsencrypt/live/orgtest.duckdns.org/cert.pem
+    SSLCertificateKeyFile   /etc/letsencrypt/live/orgtest.duckdns.org/privkey.pem
+    SSLCertificateChainFile /etc/letsencrypt/live/orgtest.duckdns.org/chain.pem
+    ```
+    - `default-ssl.conf` 파일을 apache2에 활성화
+      ```terminal
+      # sudo a2enmod ssl
+      # a2ensite default-ssl.conf
+      ```
+    - 참고, `*.conf` 파일을 apache2에 비활성화
+      ```terminal
+      a2dissite [*.conf]
+      ```
+    - apache2 재기동
+      ```terminal
+      # systemctl restart apache2
+      ```
+  - [apache2 `http > https`로 자동 리다이렉트](https://www.hyoyoung.net/46)
+    - [참고 링크1](http://httpd.apache.org/docs/2.2/en/mod/mod_rewrite.html)
+    - [테스트 링크1](https://htaccess.madewithlove.be/)
+    ```conf
+    ...
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+    ...
+    ```
+    

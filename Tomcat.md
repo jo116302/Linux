@@ -266,6 +266,7 @@
     - [참고 링크1](http://httpd.apache.org/docs/2.2/en/mod/mod_rewrite.html)
     - [참고 링크2](https://blogger.pe.kr/824)
     - [테스트 링크1](https://htaccess.madewithlove.be/)
+    - `/etc/apache2/sites-available/000-default.conf` 추가 설정
     ```conf
     ...
     RewriteEngine On

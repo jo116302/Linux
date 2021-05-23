@@ -264,6 +264,7 @@
       ```
   - [apache2 `http > https`로 자동 리다이렉트](https://www.hyoyoung.net/46)
     - [참고 링크1](http://httpd.apache.org/docs/2.2/en/mod/mod_rewrite.html)
+    - [참고 링크2](https://blogger.pe.kr/824)
     - [테스트 링크1](https://htaccess.madewithlove.be/)
     ```conf
     ...

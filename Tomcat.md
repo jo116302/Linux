@@ -283,3 +283,4 @@
 
 - [참고 링크1](https://xinet.kr/?p=1655)
 - [참고 링크2](https://geekflare.com/tomcat-ssl-guide/)
+- java1.6 버전은 TLSv 1.1만 지원하고, TLSv1.2는 지원하지 않기 때문에 경고 문구가 

@@ -216,9 +216,16 @@
     # apt-get install -y letsencript
     ```
 
-- cerbot을 사용하여 SSL/TLS 인증서 발급
+- certbot을 사용하여 SSL/TLS 인증서 발급
+  - SSL/TLS를 사용 주의사항
+    - SSL/TLS는 IP에 매칭되지 않고, DNS로 맵핑되기 때문에 공인된 IP 구역에서 조회할 수 있는 DNS가 필요
+    - DNS를 발급받기 위해서는 발급 업체를 통해야되기 때문에 개인이 DNS를 발급받기 어려움, [무료로 DNS를 만들어 이용할 수 있는 링크](https://duckdns.org)
   - 명령어 : `certbot certonly --webroot -w [DocumentRoot] -d [DNS]`
     ```terminal
     # certbot certonly --webroot -w /root/wisenut/sf-1v5.3/apache-tomcat-7.0.109/webapps/ROOT/ -d orgtest.duckdns.org
     ```
-  - 결과 출력 화면<br /><img src="https://user-images.githubusercontent.com/81629923/119249794-82653b80-bbd6-11eb-8a11-e80986f27568.png" width="500px" />
+  - 결과 출력 화면
+    - 유의사항
+      - 인증서(암호화) 파일이 생성된 경로 확인
+      - letsencrypt or certbot은 유효기간이 3개월이며, 이를 알려고이 있음
+    <img src="https://user-images.githubusercontent.com/81629923/119249794-82653b80-bbd6-11eb-8a11-e80986f27568.png" width="500px" />

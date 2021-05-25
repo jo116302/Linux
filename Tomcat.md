@@ -294,7 +294,7 @@
 
 >> ## Apache
 
-- [관련 파일 설치](https://stackoverflow.com/questions/37103927/why-does-apache2-module-http2-not-exist-on-ubuntu-16-04)
+- [관련 파일 설치 및 재실행](https://stackoverflow.com/questions/37103927/why-does-apache2-module-http2-not-exist-on-ubuntu-16-04)
   ```terminal
   # add-apt-repository -y ppa:ondrej/apache2
   # sudo apt-key update

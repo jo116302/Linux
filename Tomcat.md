@@ -289,3 +289,17 @@
 - [참고 링크5](https://www.ibm.com/docs/ko/mpf/7.1.0?topic=ssl-configuring-apache-tomcat)
 - [참고 링크6](https://www.ucert.co.kr/wiki/w/Tomcat_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C_%EC%84%A4%EC%A0%95)
 - java1.6 버전은 TLSv 1.1만 지원하고, TLSv1.2는 지원하지 않기 때문에 경고 문구가 
+
+> # HTTP/2 사용
+
+>> ## Apache
+
+- [관련 파일 설치](https://stackoverflow.com/questions/37103927/why-does-apache2-module-http2-not-exist-on-ubuntu-16-04)
+  ```terminal
+  # add-apt-repository -y ppa:ondrej/apache2
+  # sudo apt-key update
+  # sudo apt-get update
+  # apt-get --only-upgrade install apache2 -y
+  # a2enmod http2
+  # systemctl restart apache2
+  ```

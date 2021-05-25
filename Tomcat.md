@@ -3,7 +3,8 @@
 - [참고 링크1](https://community.venzia.es/apache-ssl-lets-encrypt-tomcat/)
 
 - version : Tomcat7
-- java 호환 버전 : java 1.6 이상
+  - java 호환 버전 : java 1.6 이상
+  - [http/2 : tomcat7은 지원하지 않음](https://isabeller.tistory.com/23)
 - 설치
   - [Tomcat 설치 페이지](https://tomcat.apache.org/download-70.cgi)
   ```terminal

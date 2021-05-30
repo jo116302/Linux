@@ -172,7 +172,7 @@
   14         JkMount /* testAJP
   ```
 - mod-jk 설정 : `/etc/apache2/mods-available/jk.conf` 수정
-  - mod-jk란?
+  - [mod-jk란?](https://java.ihavenomoney.co.kr/?page_id=275)
     - Apache와 Tomcat 사이를 중계
   - 23번 라인 주석처리, 24번라인 작성
   ```conf

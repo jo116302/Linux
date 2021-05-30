@@ -171,7 +171,14 @@
              #  - testAJP는 /etc/apache2/workers.properties 에서 정의된 workder명을 기입, worker를 여러개 두고 있다면 worker의 개수만큼 정의
   14         JkMount /* testAJP
   ```
-- mod-jk 설정 : `/etc/apache2/mods-available/jk.conf` or `/etc/libapache2-mod-jk/httpd-jk.conf` 수정
+- mod-jk 설정 : `/etc/apache2/mods-available/jk.conf` 수정
+  ```terminal
+  # a2dismod jk
+  # cp /etc/apache2/mods-available/httpd-jk.conf /etc/apache2/mods-available/jk.conf
+  # ln -f -s /etc/apache2/mods-available/jk.conf httpd-jk.conf
+  # a2enmod jk
+  # apache2ctl configtest
+  ```
   - [mod-jk란?](https://java.ihavenomoney.co.kr/?page_id=275)
     - Apache와 Tomcat 사이를 중계
   - 23번 라인 주석처리, 24번라인 작성
@@ -194,7 +201,7 @@
   65     <Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
   ...
   85     <Connector protocol="AJP/1.3"
-  86                address="0.0.0.0/0"
+  86                address="0.0.0.0"
   87                port="8009"
   88                redirectPort="8443"
   89                secretRequired="false" />

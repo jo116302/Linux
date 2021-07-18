@@ -8,7 +8,7 @@
 - 설치
   - [Tomcat 설치 페이지](https://tomcat.apache.org/download-70.cgi)
   ```terminal
-  # wget https://mirror.navercorp.com/apache/tomcat/tomcat-7/v7.0.109/bin/apache-tomcat-7.0.109.tar.gz
+  # wget https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.109/bin/apache-tomcat-7.0.109.tar.gz
   ```
 - [Tomcat 디렉토리 구조](https://jokerkwu.tistory.com/117)<br />
   - bin : tomcat을 실행 및 종료하는 `*.sh` 파일 존재

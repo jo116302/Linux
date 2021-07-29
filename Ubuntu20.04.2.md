@@ -100,6 +100,28 @@
     # netstat -tulpn
     ```
 
+> # SSH 설치
+
+- SSH 설치
+  ```terminal
+  # sudo apt-get install openssh-server
+  # systemctl start ssh
+  # systemctl enable ssh
+  ```
+
+- ROOT 계정 로그인 허용
+  ```terminal
+  # sudo vi /etc/ssh/sshd_config
+  # systemctl restart ssh
+  ```
+  
+  - `/etc/ssh/sshd_config` 수정 사항
+    - `PermitRootLogin`으로 주석처리되어있는 약 34번 라인을 35번 라인과 같이 추가
+    ```touch
+    34  #PermitRootLogin prohibit-password
+    35  PermitRootLogin yes
+    ```
+
 > # Java 1.6 설치
   - [Java 1.6 다운로드 받기](https://www.oracle.com/java/technologies/javase-java-archive-javase6-downloads.html)
   - Java 설치

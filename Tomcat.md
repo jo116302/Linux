@@ -105,6 +105,28 @@
   - `~/apache-tomcat-7.0.109/webapps/[폴더 A]` : `http://[IP]:[PORT]/[폴더 A]`
   - Root 경로 내에 있는 tomcat 관련 페이지 삭제 후 프로젝트 삽입
 
+> # 한글처리
+
+- Tocat에서 한글이 깨지지 않게하기 위해서는 별도의 설정 추가가 필요하다.
+  - 설정 파일
+    - `~/tomcat/conf/web.xml` 주석 해제
+      ```java
+      <filter>
+        <filter-name>setCharacterEncodingFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+        <init-param>
+          <param-name>encoding</param-name>
+          <param-value>UTF-8</param-value>
+        </init-param>
+        <async-supported>true</async-supported>
+      </filter>
+      
+      <filter-mapping>
+        <filter-name>setCharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+      </filter-mapping>
+      ```
+
 > # AJP
 
 >> ## AJP 사용 이유

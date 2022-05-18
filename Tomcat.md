@@ -110,7 +110,7 @@
 - Tocat에서 한글이 깨지지 않게하기 위해서는 별도의 설정 추가가 필요하다.
   - 설정 파일
     - `~/tomcat/conf/web.xml` 주석 해제
-      ```java
+      ```xml
       <filter>
         <filter-name>setCharacterEncodingFilter</filter-name>
         <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>

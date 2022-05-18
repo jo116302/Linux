@@ -109,6 +109,13 @@
 
 - Tocat에서 한글이 깨지지 않게하기 위해서는 별도의 설정 추가가 필요하다.
   - 설정 파일
+    - `~/tomcat/conf/service.xml` URIEncoding 추가
+      ```xml
+      <Connector port="8080" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443"
+               URIEncoding="UTF-8" />
+      ```
     - `~/tomcat/conf/web.xml` 주석 해제
       ```xml
       <filter>

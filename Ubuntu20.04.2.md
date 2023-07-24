@@ -143,3 +143,6 @@
         - '--install' : 심볼릭 링크 생성
         - '--remove' : 심볼릭 링크 제거
         - '--auto' : 심볼릭 링크 자동화
+       
+
+https://seongjin.me/docker-swarm-introduction-nodes/
